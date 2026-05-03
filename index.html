@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Cut – Kapper Utrecht</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #111111;
+  --gold: #C9A24E;
+  --gold-light: #e0bb78;
+  --gold-dim: rgba(201,162,78,0.15);
+  --white: #FFFFFF;
+  --offwhite: #F8F5F0;
+  --gray: #888;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 5vw;
+  background: rgba(17,17,17,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,162,78,0.2);
+  transition: padding .3s;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--white); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color .25s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-tel {
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 0.55rem 1.3rem;
+  border-radius: 2px;
+  font-weight: 500 !important;
+}
+
+.nav-tel:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  width: 24px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all .3s;
+}
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(17,17,17,0.98);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,162,78,0.2);
+  padding: 2rem 5vw;
+  z-index: 998;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.mobile-menu a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(201,162,78,0.1);
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu.open { display: flex; }
+
+/* ── HERO ── */
+#home {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem 5vw 6rem 8vw;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 1.8rem;
+  color: var(--white);
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.9;
+  max-width: 400px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: all .28s;
+  cursor: pointer;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--black);
+}
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-visual {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Decorative barbershop pole SVG */
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(201,162,78,0.03) 40px,
+      rgba(201,162,78,0.03) 80px
+    );
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 3rem;
+  left: -1.5rem;
+  background: var(--black);
+  border: 1px solid rgba(201,162,78,0.35);
+  padding: 1.2rem 1.5rem;
+  border-radius: 4px;
+}
+
+.hero-badge-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-badge-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* ── DIVIDER ── */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 5vw;
+}
+
+/* ── SECTION BASE ── */
+section { padding: 6rem 5vw; }
+
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── DIENSTEN ── */
+#diensten {
+  background: #0e0e0e;
+}
+
+.diensten-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.diensten-header {
+  margin-bottom: 3.5rem;
+}
+
+.diensten-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: rgba(201,162,78,0.1);
+  border: 1px solid rgba(201,162,78,0.1);
+}
+
+.dienst-card {
+  background: #111111;
+  padding: 2.8rem 2.5rem;
+  transition: background .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.dienst-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width .4s;
+}
+
+.dienst-card:hover::before { width: 100%; }
+.dienst-card:hover { background: #161616; }
+
+.dienst-icon {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.dienst-naam {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.dienst-desc {
+  font-size: 0.78rem;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+  font-weight: 300;
+}
+
+.dienst-prijs {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.dienst-prijs span {
+  font-size: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--gray);
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+/* ── OVER ONS ── */
+#over {
+  background: var(--black);
+}
+
+.over-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.over-visual {
+  position: relative;
+}
+
+.over-img-box {
+  background: #1a1a1a;
+  border: 1px solid rgba(201,162,78,0.15);
+  aspect-ratio: 3/4;
+  max-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.over-img-box svg {
+  opacity: 0.6;
+}
+
+.over-accent {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  width: 160px; height: 160px;
+  border: 1px solid rgba(201,162,78,0.3);
+  z-index: -1;
+}
+
+.over-text .section-label { margin-bottom: 0.8rem; }
+.over-text .section-title { margin-bottom: 1.2rem; }
+
+.over-body {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 2;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.over-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat {
+  border-left: 2px solid var(--gold);
+  padding-left: 1rem;
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: var(--gold);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── OPENINGSTIJDEN ── */
+#tijden {
+  background: #0e0e0e;
+}
+
+.tijden-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.tijden-table {
+  margin-top: 2.5rem;
+}
+
+.tijden-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.85rem;
+}
+
+.tijden-row:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+
+.tijden-dag {
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.tijden-dag.today {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.tijden-tijd {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+}
+
+.tijden-tijd.gesloten {
+  color: var(--gray);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contact-card {
+  background: #111;
+  border: 1px solid rgba(201,162,78,0.2);
+  padding: 2.5rem;
+  border-radius: 2px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.contact-item:last-of-type { margin-bottom: 0; }
+
+.contact-icon {
+  width: 40px; height: 40px;
+  background: var(--gold-dim);
+  border: 1px solid rgba(201,162,78,0.3);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.contact-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-size: 0.88rem;
+  color: var(--white);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.contact-value a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color .2s;
+}
+.contact-value a:hover { color: var(--gold); }
+
+.maps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.8rem;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,162,78,0.4);
+  padding-bottom: 2px;
+  transition: border-color .2s;
+}
+.maps-btn:hover { border-color: var(--gold); }
+
+/* ── AFSPRAAK / CTA BANNER ── */
+#afspraak {
+  background: var(--gold);
+  padding: 5rem 5vw;
+  text-align: center;
+}
+
+.afspraak-inner { max-width: 700px; margin: 0 auto; }
+
+.afspraak-inner .section-label {
+  justify-content: center;
+  color: rgba(17,17,17,0.6);
+}
+.afspraak-inner .section-label::before { background: rgba(17,17,17,0.4); }
+
+.afspraak-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--black);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.afspraak-sub {
+  font-size: 0.82rem;
+  color: rgba(17,17,17,0.6);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+}
+.btn-dark:hover {
+  background: #222;
+  transform: translateY(-2px);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #080808;
+  border-top: 1px solid rgba(201,162,78,0.15);
+  padding: 2.5rem 5vw;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.footer-logo span { color: rgba(255,255,255,0.5); }
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.5px;
+}
+
+/* ── HERO SVG ILLUSTRATION ── */
+.barber-art {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  #home {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    padding: 8rem 6vw 4rem;
+  }
+
+  .hero-right {
+    height: 320px;
+  }
+
+  .diensten-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .over-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .over-img-box { max-height: 300px; aspect-ratio: 16/9; }
+
+  .tijden-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left { padding: 7rem 5vw 3rem; }
+  section { padding: 4rem 5vw; }
+  .over-stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── FADE IN ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.fade-in-1 { animation-delay: 0.1s; opacity: 0; }
+.fade-in-2 { animation-delay: 0.25s; opacity: 0; }
+.fade-in-3 { animation-delay: 0.4s; opacity: 0; }
+.fade-in-4 { animation-delay: 0.55s; opacity: 0; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAVIGATIE ══════════════ -->
+<nav>
+  <a href="#home" class="nav-logo">Royal<span>Cut</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#diensten">Diensten</a></li>
+    <li><a href="#over">Over ons</a></li>
+    <li><a href="#tijden">Openingstijden</a></li>
+    <li><a href="tel:0685803223" class="nav-tel">📞 Bel ons</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="toggleMenu()">Home</a>
+  <a href="#diensten" onclick="toggleMenu()">Diensten</a>
+  <a href="#over" onclick="toggleMenu()">Over ons</a>
+  <a href="#tijden" onclick="toggleMenu()">Openingstijden</a>
+  <a href="tel:0685803223" style="color:var(--gold)">📞 06 858 032 23</a>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="home" style="padding:0">
+
+  <div class="hero-left">
+    <div class="hero-eyebrow fade-in fade-in-1">Kapper Utrecht</div>
+    <h1 class="hero-title fade-in fade-in-2">
+      Stijl die<br><em>blijft hangen</em>
+    </h1>
+    <p class="hero-desc fade-in fade-in-3">
+      Vakmanschap, rust en precisie. Bij Royal Cut in Utrecht bent u in goede handen — van klassiek tot modern.
+    </p>
+    <div class="hero-cta fade-in fade-in-4">
+      <a href="tel:0685803223" class="btn btn-gold">Afspraak maken</a>
+      <a href="#diensten" class="btn btn-outline">Bekijk prijzen</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-visual">
+      <!-- Decoratieve barbershop illustratie -->
+      <svg width="280" height="400" viewBox="0 0 280 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Barber pole -->
+        <rect x="125" y="60" width="30" height="280" rx="2" fill="#1a1a1a" stroke="rgba(201,162,78,0.3)" stroke-width="1"/>
+        <rect x="127" y="60" width="8" height="280" fill="rgba(201,162,78,0.15)"/>
+        <rect x="143" y="60" width="8" height="280" fill="rgba(255,255,255,0.06)"/>
+        <!-- Spiraal strepen -->
+        <path d="M125 80 L155 100 L125 120 L155 140 L125 160 L155 180 L125 200 L155 220 L125 240 L155 260 L125 280 L155 300 L125 320" stroke="rgba(201,162,78,0.5)" stroke-width="3" fill="none"/>
+        <path d="M125 90 L155 110 L125 130 L155 150 L125 170 L155 190 L125 210 L155 230 L125 250 L155 270 L125 290 L155 310" stroke="rgba(255,80,80,0.3)" stroke-width="3" fill="none"/>
+        <!-- Bol boven -->
+        <ellipse cx="140" cy="62" rx="22" ry="12" fill="#1a1a1a" stroke="rgba(201,162,78,0.4)" stroke-width="1"/>
+        <ellipse cx="140" cy="340" rx="22" ry="12" fill="#1a1a1a" stroke="rgba(201,162,78,0.4)" stroke-width="1"/>
+        <!-- Schaar -->
+        <g transform="translate(170, 150) rotate(-25)">
+          <line x1="0" y1="0" x2="60" y2="-15" stroke="rgba(201,162,78,0.7)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="0" x2="55" y2="20" stroke="rgba(201,162,78,0.7)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="5" fill="none" stroke="rgba(201,162,78,0.7)" stroke-width="1.5"/>
+          <circle cx="4" cy="-4" r="5" fill="none" stroke="rgba(201,162,78,0.5)" stroke-width="1.5"/>
+        </g>
+        <!-- Kam -->
+        <g transform="translate(65, 200)">
+          <rect x="0" y="0" width="50" height="8" rx="1" fill="rgba(201,162,78,0.3)" stroke="rgba(201,162,78,0.5)" stroke-width="1"/>
+          <line x1="8" y1="8" x2="8" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+          <line x1="16" y1="8" x2="16" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+          <line x1="24" y1="8" x2="24" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+          <line x1="32" y1="8" x2="32" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+          <line x1="40" y1="8" x2="40" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+        </g>
+        <!-- Sterren / spikkels decoratie -->
+        <circle cx="80" cy="100" r="1.5" fill="rgba(201,162,78,0.4)"/>
+        <circle cx="200" cy="280" r="1.5" fill="rgba(201,162,78,0.4)"/>
+        <circle cx="60" cy="300" r="1" fill="rgba(201,162,78,0.3)"/>
+        <circle cx="220" cy="120" r="1" fill="rgba(201,162,78,0.3)"/>
+      </svg>
+
+      <!-- Badge onderaan -->
+      <div class="hero-badge">
+        <div class="hero-badge-num">15+</div>
+        <div class="hero-badge-label">Jaar ervaring</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════ DIENSTEN ══════════════ -->
+<section id="diensten">
+  <div class="diensten-inner">
+    <div class="diensten-header">
+      <div class="section-label">Wat wij bieden</div>
+      <h2 class="section-title">Onze <em>diensten</em></h2>
+      <p style="font-size:0.82rem;color:var(--gray);font-weight:300;line-height:1.8;max-width:480px;margin-top:0.5rem">
+        Eerlijke prijzen, professioneel werk. Geen verborgen kosten.
+      </p>
+    </div>
+
+    <div class="diensten-grid">
+      <div class="dienst-card">
+        <span class="dienst-icon">✂️</span>
+        <div class="dienst-naam">Knippen heren</div>
+        <div class="dienst-desc">Klassiek of modern — wij knippen naar uw wens. Met precisie en aandacht voor elk detail.</div>
+        <div class="dienst-prijs">€25 <span>per beurt</span></div>
+      </div>
+      <div class="dienst-card">
+        <span class="dienst-icon">💨</span>
+        <div class="dienst-naam">Föhnen</div>
+        <div class="dienst-desc">Stijlvol föhnen voor een verzorgde look die de hele dag meegaat.</div>
+        <div class="dienst-prijs">€15 <span>per beurt</span></div>
+      </div>
+      <div class="dienst-card">
+        <span class="dienst-icon">🪒</span>
+        <div class="dienst-naam">Baard trimmen</div>
+        <div class="dienst-desc">Uw baard in perfecte conditie — strak getrimd of juist bewust laten groeien.</div>
+        <div class="dienst-prijs">€10 <span>per beurt</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════ OVER ONS ══════════════ -->
+<section id="over">
+  <div class="over-inner">
+    <div class="over-visual">
+      <div class="over-img-box">
+        <svg width="160" height="200" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stoel silhouet -->
+          <rect x="40" y="140" width="80" height="8" rx="2" fill="rgba(201,162,78,0.3)"/>
+          <rect x="55" y="148" width="10" height="40" rx="1" fill="rgba(201,162,78,0.2)"/>
+          <rect x="95" y="148" width="10" height="40" rx="1" fill="rgba(201,162,78,0.2)"/>
+          <rect x="30" y="185" width="100" height="6" rx="3" fill="rgba(201,162,78,0.2)"/>
+          <path d="M45 80 Q45 40 80 40 Q115 40 115 80 L115 140 L45 140 Z" fill="rgba(201,162,78,0.1)" stroke="rgba(201,162,78,0.25)" stroke-width="1"/>
+          <rect x="25" y="100" width="20" height="50" rx="2" fill="rgba(201,162,78,0.15)" stroke="rgba(201,162,78,0.2)" stroke-width="1"/>
+          <rect x="115" y="100" width="20" height="50" rx="2" fill="rgba(201,162,78,0.15)" stroke="rgba(201,162,78,0.2)" stroke-width="1"/>
+          <!-- Hoofd silhouet -->
+          <circle cx="80" cy="28" r="22" fill="rgba(201,162,78,0.1)" stroke="rgba(201,162,78,0.3)" stroke-width="1"/>
+          <!-- Goud lijn decoratie -->
+          <line x1="0" y1="195" x2="160" y2="195" stroke="rgba(201,162,78,0.2)" stroke-width="1"/>
+        </svg>
+        <div class="over-accent"></div>
+      </div>
+    </div>
+
+    <div class="over-text">
+      <div class="section-label">Wie zijn wij</div>
+      <h2 class="section-title">Vakmanschap<br>met <em>passie</em></h2>
+      <p class="over-body">
+        Royal Cut is uw vertrouwde kapper in het hart van Utrecht. Wij geloven in persoonlijk contact, rust in de stoel en een resultaat waar u blij mee de deur uit loopt.<br><br>
+        Geen overhaaste knipbeurten. Gewoon de tijd nemen voor uw haar — zo hoort het.
+      </p>
+      <div class="over-stats">
+        <div class="stat">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Jaar ervaring</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Vaste klanten</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Diensten</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Dagen open</div>
+        </div>
+      </div>
+      <a href="tel:0685803223" class="btn btn-gold">Bel voor een afspraak</a>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════ OPENINGSTIJDEN + CONTACT ══════════════ -->
+<section id="tijden">
+  <div class="tijden-inner">
+    <div>
+      <div class="section-label">Wanneer</div>
+      <h2 class="section-title"><em>Openings</em>tijden</h2>
+      <div class="tijden-table">
+        <div class="tijden-row">
+          <span class="tijden-dag" id="dag-zo">Zondag</span>
+          <span class="tijden-tijd">09:00 – 18:00</span>
+        </div>
+        <div class="tijden-row">
+          <span class="tijden-dag" id="dag-ma">Maandag</span>
+          <span class="tijden-tijd">09:00 – 18:00</span>
+        </div>
+        <div class="tijden-row">
+          <span class="tijden-dag" id="dag-di">Dinsdag</span>
+          <span class="tijden-tijd">09:00 – 18:00</span>
+        </div>
+        <div class="tijden-row">
+          <span class="tijden-dag" id="dag-wo">Woensdag</span>
+          <span class="tijden-tijd">09:00 – 18:00</span>
+        </div>
+        <div class="tijden-row">
+          <span class="tijden-dag" id="dag-do">Donderdag</span>
+          <span class="tijden-tijd gesloten">Gesloten</span>
+        </div>
+        <div class="tijden-row">
+          <span class="tijden-dag" id="dag-vr">Vrijdag</span>
+          <span class="tijden-tijd">09:00 – 18:00</span>
+        </div>
+        <div class="tijden-row">
+          <span class="tijden-dag" id="dag-za">Zaterdag</span>
+          <span class="tijden-tijd">09:00 – 18:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Bereikbaarheid</div>
+      <h2 class="section-title"><em>Contact</em></h2>
+      <div class="contact-card" style="margin-top:1.5rem">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Adres</div>
+            <div class="contact-value">Sweder van Zuylenweg 94<br>3553 HJ Utrecht</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Telefoon</div>
+            <div class="contact-value"><a href="tel:0685803223">06 858 032 23</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Vandaag</div>
+            <div class="contact-value" id="todayStatus" style="color:var(--gold)">–</div>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=Sweder+van+Zuylenweg+94,+3553+HJ+Utrecht" target="_blank" class="maps-btn">
+          Bekijk op Google Maps →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA BANNER ══════════════ -->
+<section id="afspraak">
+  <div class="afspraak-inner">
+    <div class="section-label">Klaar voor een verse look?</div>
+    <h2 class="afspraak-title">Maak vandaag nog een afspraak</h2>
+    <p class="afspraak-sub">Bel ons of kom gewoon langs — we helpen u graag verder bij Royal Cut Utrecht.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="tel:0685803223" class="btn btn-dark">📞 06 858 032 23</a>
+      <a href="https://maps.google.com/?q=Sweder+van+Zuylenweg+94,+3553+HJ+Utrecht" target="_blank" class="btn btn-outline" style="color:var(--black);border-color:rgba(17,17,17,0.3)">Routebeschrijving</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Royal<span>Cut</span></div>
+    <div class="footer-copy">
+      © 2026 Royal Cut Utrecht · Sweder van Zuylenweg 94 · 06 858 032 23
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ JAVASCRIPT ══════════════ -->
+<script>
+// Hamburger menu
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+
+// Sluit menu bij klik buiten
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  if (!menu.contains(e.target) && !ham.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+
+// Markeer huidige dag
+const dagIds = ['dag-zo','dag-ma','dag-di','dag-wo','dag-do','dag-vr','dag-za'];
+const today = new Date().getDay(); // 0=zo, 1=ma, ...
+const dagEl = document.getElementById(dagIds[today]);
+if (dagEl) dagEl.classList.add('today');
+
+// Vandaag status
+const statusEl = document.getElementById('todayStatus');
+const gesloten = [4]; // donderdag
+const now = new Date();
+const hour = now.getHours() + now.getMinutes() / 60;
+if (gesloten.includes(today)) {
+  statusEl.textContent = 'Vandaag gesloten';
+  statusEl.style.color = 'var(--gray)';
+} else if (hour >= 9 && hour < 18) {
+  statusEl.textContent = 'Nu open · sluit om 18:00';
+  statusEl.style.color = '#6fcf97';
+} else {
+  statusEl.textContent = 'Nu gesloten · opent om 09:00';
+  statusEl.style.color = 'var(--gray)';
+}
+
+// Smooth nav highlight on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+  });
+});
+</script>
+
+</body>
+</html>
