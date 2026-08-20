@@ -1,0 +1,869 @@
+/* ════════════════════════════════════════════
+   Royal Cut – Kapper Utrecht
+   style.css
+   ════════════════════════════════════════════ */
+
+/* ── VARIABELEN ── */
+:root {
+  --black:      #111111;
+  --gold:       #C9A24E;
+  --gold-light: #e0bb78;
+  --gold-dim:   rgba(201, 162, 78, 0.15);
+  --white:      #FFFFFF;
+  --offwhite:   #F8F5F0;
+  --gray:       #888888;
+}
+
+/* ── RESET ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* ════════════════════════════════════════════
+   NAVIGATIE
+   ════════════════════════════════════════════ */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 5vw;
+  background: rgba(17, 17, 17, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 162, 78, 0.2);
+  transition: padding 0.3s;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.nav-logo span {
+  color: var(--white);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-tel {
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 0.55rem 1.3rem;
+  border-radius: 2px;
+  font-weight: 500 !important;
+}
+
+.nav-tel:hover {
+  background: var(--gold-light) !important;
+  color: var(--black) !important;
+}
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ── MOBIEL MENU ── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: rgba(17, 17, 17, 0.98);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201, 162, 78, 0.2);
+  padding: 2rem 5vw;
+  z-index: 998;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-menu a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(201, 162, 78, 0.1);
+}
+
+.mobile-menu a:hover {
+  color: var(--gold);
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+/* ════════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════════ */
+
+#home {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem 5vw 6rem 8vw;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 1.8rem;
+  color: var(--white);
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.9;
+  max-width: 400px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-visual {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(201, 162, 78, 0.03) 40px,
+    rgba(201, 162, 78, 0.03) 80px
+  );
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 3rem;
+  left: -1.5rem;
+  background: var(--black);
+  border: 1px solid rgba(201, 162, 78, 0.35);
+  padding: 1.2rem 1.5rem;
+  border-radius: 4px;
+}
+
+.hero-badge-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-badge-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* ════════════════════════════════════════════
+   KNOPPEN
+   ════════════════════════════════════════════ */
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: all 0.28s;
+  cursor: pointer;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-dark:hover {
+  background: #222222;
+  transform: translateY(-2px);
+}
+
+/* ════════════════════════════════════════════
+   GOUDEN SCHEIDSLIJN
+   ════════════════════════════════════════════ */
+
+.gold-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 5vw;
+}
+
+/* ════════════════════════════════════════════
+   SECTIES – GEDEELDE STIJLEN
+   ════════════════════════════════════════════ */
+
+section {
+  padding: 6rem 5vw;
+}
+
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ════════════════════════════════════════════
+   DIENSTEN
+   ════════════════════════════════════════════ */
+
+#diensten {
+  background: #0e0e0e;
+}
+
+.diensten-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.diensten-header {
+  margin-bottom: 3.5rem;
+}
+
+.diensten-header p {
+  font-size: 0.82rem;
+  color: var(--gray);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 480px;
+  margin-top: 0.5rem;
+}
+
+.diensten-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: rgba(201, 162, 78, 0.1);
+  border: 1px solid rgba(201, 162, 78, 0.1);
+}
+
+.dienst-card {
+  background: #111111;
+  padding: 2.8rem 2.5rem;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.dienst-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.4s;
+}
+
+.dienst-card:hover::before {
+  width: 100%;
+}
+
+.dienst-card:hover {
+  background: #161616;
+}
+
+.dienst-icon {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.dienst-naam {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.dienst-desc {
+  font-size: 0.78rem;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+  font-weight: 300;
+}
+
+.dienst-prijs {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.dienst-prijs span {
+  font-size: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--gray);
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+/* ════════════════════════════════════════════
+   OVER ONS
+   ════════════════════════════════════════════ */
+
+#over {
+  background: var(--black);
+}
+
+.over-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.over-img-box {
+  background: #1a1a1a;
+  border: 1px solid rgba(201, 162, 78, 0.15);
+  aspect-ratio: 3 / 4;
+  max-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.over-accent {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  width: 160px;
+  height: 160px;
+  border: 1px solid rgba(201, 162, 78, 0.3);
+  z-index: -1;
+}
+
+.over-body {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 2;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.over-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat {
+  border-left: 2px solid var(--gold);
+  padding-left: 1rem;
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: var(--gold);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ════════════════════════════════════════════
+   OPENINGSTIJDEN
+   ════════════════════════════════════════════ */
+
+#tijden {
+  background: #0e0e0e;
+}
+
+.tijden-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.tijden-table {
+  margin-top: 2.5rem;
+}
+
+.tijden-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.85rem;
+}
+
+.tijden-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tijden-dag {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.tijden-dag.today {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.tijden-tijd {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+}
+
+.tijden-tijd.gesloten {
+  color: var(--gray);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── CONTACT KAART ── */
+.contact-card {
+  background: #111111;
+  border: 1px solid rgba(201, 162, 78, 0.2);
+  padding: 2.5rem;
+  border-radius: 2px;
+  margin-top: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.contact-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--gold-dim);
+  border: 1px solid rgba(201, 162, 78, 0.3);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.contact-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-size: 0.88rem;
+  color: var(--white);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.contact-value a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-value a:hover {
+  color: var(--gold);
+}
+
+.maps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.8rem;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 162, 78, 0.4);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+
+.maps-btn:hover {
+  border-color: var(--gold);
+}
+
+/* ════════════════════════════════════════════
+   AFSPRAAK – CTA BANNER
+   ════════════════════════════════════════════ */
+
+#afspraak {
+  background: var(--gold);
+  padding: 5rem 5vw;
+  text-align: center;
+}
+
+.afspraak-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.afspraak-inner .section-label {
+  justify-content: center;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.afspraak-inner .section-label::before {
+  background: rgba(17, 17, 17, 0.4);
+}
+
+.afspraak-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--black);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.afspraak-sub {
+  font-size: 0.82rem;
+  color: rgba(17, 17, 17, 0.6);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.afspraak-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ════════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════════ */
+
+footer {
+  background: #080808;
+  border-top: 1px solid rgba(201, 162, 78, 0.15);
+  padding: 2.5rem 5vw;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.footer-logo span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* ════════════════════════════════════════════
+   ANIMATIES
+   ════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.fade-in-1 { animation-delay: 0.10s; opacity: 0; }
+.fade-in-2 { animation-delay: 0.25s; opacity: 0; }
+.fade-in-3 { animation-delay: 0.40s; opacity: 0; }
+.fade-in-4 { animation-delay: 0.55s; opacity: 0; }
+
+/* ════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  #home {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    padding: 8rem 6vw 4rem;
+  }
+
+  .hero-right {
+    height: 320px;
+  }
+
+  .diensten-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .over-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .over-img-box {
+    max-height: 300px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .tijden-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left {
+    padding: 7rem 5vw 3rem;
+  }
+
+  section {
+    padding: 4rem 5vw;
+  }
+
+  .over-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}

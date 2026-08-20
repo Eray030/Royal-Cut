@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Cut – Kapper Utrecht</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Eigen stijlbestand -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATIE
+       ══════════════════════════════════════════ -->
+  <nav>
+    <a href="#home" class="nav-logo">Royal<span>Cut</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#diensten">Diensten</a></li>
+      <li><a href="#over">Over ons</a></li>
+      <li><a href="#tijden">Openingstijden</a></li>
+      <li><a href="tel:0685803223" class="nav-tel">📞 Bel ons</a></li>
+    </ul>
+
+    <!-- Hamburger (mobiel) -->
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Mobiel menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home"      onclick="toggleMenu()">Home</a>
+    <a href="#diensten"  onclick="toggleMenu()">Diensten</a>
+    <a href="#over"      onclick="toggleMenu()">Over ons</a>
+    <a href="#tijden"    onclick="toggleMenu()">Openingstijden</a>
+    <a href="tel:0685803223" style="color: var(--gold);">📞 06 858 032 23</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       HERO – HOMEPAGINA
+       ══════════════════════════════════════════ -->
+  <section id="home">
+
+    <!-- Linker kolom: tekst -->
+    <div class="hero-left">
+      <div class="hero-eyebrow fade-in fade-in-1">Kapper Utrecht</div>
+
+      <h1 class="hero-title fade-in fade-in-2">
+        Stijl die<br><em>blijft hangen</em>
+      </h1>
+
+      <p class="hero-desc fade-in fade-in-3">
+        Vakmanschap, rust en precisie. Bij Royal Cut in Utrecht bent u in goede handen — van klassiek tot modern.
+      </p>
+
+      <div class="hero-cta fade-in fade-in-4">
+        <a href="tel:0685803223" class="btn btn-gold">Afspraak maken</a>
+        <a href="#diensten"      class="btn btn-outline">Bekijk prijzen</a>
+      </div>
+    </div>
+
+    <!-- Rechter kolom: illustratie -->
+    <div class="hero-right">
+      <div class="hero-visual">
+
+        <!-- Decoratieve barbershop illustratie (SVG) -->
+        <svg width="280" height="400" viewBox="0 0 280 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Barber pole buis -->
+          <rect x="125" y="60"  width="30" height="280" rx="2" fill="#1a1a1a" stroke="rgba(201,162,78,0.3)" stroke-width="1"/>
+          <rect x="127" y="60"  width="8"  height="280" fill="rgba(201,162,78,0.15)"/>
+          <rect x="143" y="60"  width="8"  height="280" fill="rgba(255,255,255,0.06)"/>
+
+          <!-- Spiraalstrepen goud -->
+          <path d="M125 80 L155 100 L125 120 L155 140 L125 160 L155 180 L125 200 L155 220 L125 240 L155 260 L125 280 L155 300 L125 320"
+                stroke="rgba(201,162,78,0.5)" stroke-width="3" fill="none"/>
+
+          <!-- Spiraalstrepen rood -->
+          <path d="M125 90 L155 110 L125 130 L155 150 L125 170 L155 190 L125 210 L155 230 L125 250 L155 270 L125 290 L155 310"
+                stroke="rgba(255,80,80,0.3)" stroke-width="3" fill="none"/>
+
+          <!-- Bollen boven en onder -->
+          <ellipse cx="140" cy="62"  rx="22" ry="12" fill="#1a1a1a" stroke="rgba(201,162,78,0.4)" stroke-width="1"/>
+          <ellipse cx="140" cy="340" rx="22" ry="12" fill="#1a1a1a" stroke="rgba(201,162,78,0.4)" stroke-width="1"/>
+
+          <!-- Schaar -->
+          <g transform="translate(170, 150) rotate(-25)">
+            <line x1="0" y1="0"  x2="60" y2="-15" stroke="rgba(201,162,78,0.7)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="0" y1="0"  x2="55" y2="20"  stroke="rgba(201,162,78,0.7)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="0" cy="0"  r="5" fill="none" stroke="rgba(201,162,78,0.7)" stroke-width="1.5"/>
+            <circle cx="4" cy="-4" r="5" fill="none" stroke="rgba(201,162,78,0.5)" stroke-width="1.5"/>
+          </g>
+
+          <!-- Kam -->
+          <g transform="translate(65, 200)">
+            <rect x="0" y="0" width="50" height="8" rx="1" fill="rgba(201,162,78,0.3)" stroke="rgba(201,162,78,0.5)" stroke-width="1"/>
+            <line x1="8"  y1="8" x2="8"  y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+            <line x1="16" y1="8" x2="16" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+            <line x1="24" y1="8" x2="24" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+            <line x1="32" y1="8" x2="32" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+            <line x1="40" y1="8" x2="40" y2="20" stroke="rgba(201,162,78,0.5)" stroke-width="2"/>
+          </g>
+
+          <!-- Decoratieve stippen -->
+          <circle cx="80"  cy="100" r="1.5" fill="rgba(201,162,78,0.4)"/>
+          <circle cx="200" cy="280" r="1.5" fill="rgba(201,162,78,0.4)"/>
+          <circle cx="60"  cy="300" r="1"   fill="rgba(201,162,78,0.3)"/>
+          <circle cx="220" cy="120" r="1"   fill="rgba(201,162,78,0.3)"/>
+        </svg>
+
+        <!-- Badge: jaren ervaring -->
+        <div class="hero-badge">
+          <div class="hero-badge-num">15+</div>
+          <div class="hero-badge-label">Jaar ervaring</div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="gold-line"></div>
+
+
+  <!-- ══════════════════════════════════════════
+       DIENSTEN
+       ══════════════════════════════════════════ -->
+  <section id="diensten">
+    <div class="diensten-inner">
+
+      <div class="diensten-header">
+        <div class="section-label">Wat wij bieden</div>
+        <h2 class="section-title">Onze <em>diensten</em></h2>
+        <p>Eerlijke prijzen, professioneel werk. Geen verborgen kosten.</p>
+      </div>
+
+      <div class="diensten-grid">
+
+        <div class="dienst-card">
+          <span class="dienst-icon">✂️</span>
+          <div class="dienst-naam">Knippen heren</div>
+          <div class="dienst-desc">Klassiek of modern — wij knippen naar uw wens. Met precisie en aandacht voor elk detail.</div>
+          <div class="dienst-prijs">€25 <span>per beurt</span></div>
+        </div>
+
+        <div class="dienst-card">
+          <span class="dienst-icon">💨</span>
+          <div class="dienst-naam">Föhnen</div>
+          <div class="dienst-desc">Stijlvol föhnen voor een verzorgde look die de hele dag meegaat.</div>
+          <div class="dienst-prijs">€15 <span>per beurt</span></div>
+        </div>
+
+        <div class="dienst-card">
+          <span class="dienst-icon">🪒</span>
+          <div class="dienst-naam">Baard trimmen</div>
+          <div class="dienst-desc">Uw baard in perfecte conditie — strak getrimd of juist bewust laten groeien.</div>
+          <div class="dienst-prijs">€10 <span>per beurt</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+
+  <!-- ══════════════════════════════════════════
+       OVER ONS
+       ══════════════════════════════════════════ -->
+  <section id="over">
+    <div class="over-inner">
+
+      <!-- Illustratie links -->
+      <div class="over-visual">
+        <div class="over-img-box">
+          <svg width="160" height="200" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Kappersstoel silhouet -->
+            <rect x="40"  y="140" width="80"  height="8"  rx="2" fill="rgba(201,162,78,0.3)"/>
+            <rect x="55"  y="148" width="10"  height="40" rx="1" fill="rgba(201,162,78,0.2)"/>
+            <rect x="95"  y="148" width="10"  height="40" rx="1" fill="rgba(201,162,78,0.2)"/>
+            <rect x="30"  y="185" width="100" height="6"  rx="3" fill="rgba(201,162,78,0.2)"/>
+            <path d="M45 80 Q45 40 80 40 Q115 40 115 80 L115 140 L45 140 Z"
+                  fill="rgba(201,162,78,0.1)" stroke="rgba(201,162,78,0.25)" stroke-width="1"/>
+            <rect x="25"  y="100" width="20" height="50" rx="2" fill="rgba(201,162,78,0.15)" stroke="rgba(201,162,78,0.2)" stroke-width="1"/>
+            <rect x="115" y="100" width="20" height="50" rx="2" fill="rgba(201,162,78,0.15)" stroke="rgba(201,162,78,0.2)" stroke-width="1"/>
+            <!-- Hoofd silhouet -->
+            <circle cx="80" cy="28" r="22" fill="rgba(201,162,78,0.1)" stroke="rgba(201,162,78,0.3)" stroke-width="1"/>
+            <!-- Onderlijn -->
+            <line x1="0" y1="195" x2="160" y2="195" stroke="rgba(201,162,78,0.2)" stroke-width="1"/>
+          </svg>
+          <div class="over-accent"></div>
+        </div>
+      </div>
+
+      <!-- Tekst rechts -->
+      <div class="over-text">
+        <div class="section-label">Wie zijn wij</div>
+        <h2 class="section-title">Vakmanschap<br>met <em>passie</em></h2>
+
+        <p class="over-body">
+          Royal Cut is uw vertrouwde kapper in het hart van Utrecht. Wij geloven in persoonlijk contact, rust in de stoel en een resultaat waar u blij mee de deur uit loopt.<br><br>
+          Geen overhaaste knipbeurten. Gewoon de tijd nemen voor uw haar — zo hoort het.
+        </p>
+
+        <div class="over-stats">
+          <div class="stat">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Jaar ervaring</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Vaste klanten</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Diensten</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">6</div>
+            <div class="stat-label">Dagen open</div>
+          </div>
+        </div>
+
+        <a href="tel:0685803223" class="btn btn-gold">Bel voor een afspraak</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+
+  <!-- ══════════════════════════════════════════
+       OPENINGSTIJDEN + CONTACT
+       ══════════════════════════════════════════ -->
+  <section id="tijden">
+    <div class="tijden-inner">
+
+      <!-- Openingstijden -->
+      <div>
+        <div class="section-label">Wanneer</div>
+        <h2 class="section-title"><em>Openings</em>tijden</h2>
+
+        <div class="tijden-table">
+          <div class="tijden-row">
+            <span class="tijden-dag" id="dag-zo">Zondag</span>
+            <span class="tijden-tijd">09:00 – 18:00</span>
+          </div>
+          <div class="tijden-row">
+            <span class="tijden-dag" id="dag-ma">Maandag</span>
+            <span class="tijden-tijd">09:00 – 18:00</span>
+          </div>
+          <div class="tijden-row">
+            <span class="tijden-dag" id="dag-di">Dinsdag</span>
+            <span class="tijden-tijd">09:00 – 18:00</span>
+          </div>
+          <div class="tijden-row">
+            <span class="tijden-dag" id="dag-wo">Woensdag</span>
+            <span class="tijden-tijd">09:00 – 18:00</span>
+          </div>
+          <div class="tijden-row">
+            <span class="tijden-dag" id="dag-do">Donderdag</span>
+            <span class="tijden-tijd gesloten">Gesloten</span>
+          </div>
+          <div class="tijden-row">
+            <span class="tijden-dag" id="dag-vr">Vrijdag</span>
+            <span class="tijden-tijd">09:00 – 18:00</span>
+          </div>
+          <div class="tijden-row">
+            <span class="tijden-dag" id="dag-za">Zaterdag</span>
+            <span class="tijden-tijd">09:00 – 18:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contactgegevens -->
+      <div>
+        <div class="section-label">Bereikbaarheid</div>
+        <h2 class="section-title"><em>Contact</em></h2>
+
+        <div class="contact-card">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Adres</div>
+              <div class="contact-value">
+                Sweder van Zuylenweg 94<br>
+                3553 HJ Utrecht
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Telefoon</div>
+              <div class="contact-value">
+                <a href="tel:0685803223">06 858 032 23</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-label">Vandaag</div>
+              <div class="contact-value" id="todayStatus">–</div>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/?q=Sweder+van+Zuylenweg+94,+3553+HJ+Utrecht"
+             target="_blank"
+             class="maps-btn">
+            Bekijk op Google Maps →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       AFSPRAAK – CTA BANNER
+       ══════════════════════════════════════════ -->
+  <section id="afspraak">
+    <div class="afspraak-inner">
+      <div class="section-label">Klaar voor een verse look?</div>
+      <h2 class="afspraak-title">Maak vandaag nog een afspraak</h2>
+      <p class="afspraak-sub">Bel ons of kom gewoon langs — we helpen u graag verder bij Royal Cut Utrecht.</p>
+
+      <div class="afspraak-btns">
+        <a href="tel:0685803223" class="btn btn-dark">📞 06 858 032 23</a>
+        <a href="https://maps.google.com/?q=Sweder+van+Zuylenweg+94,+3553+HJ+Utrecht"
+           target="_blank"
+           class="btn btn-outline"
+           style="color: var(--black); border-color: rgba(17,17,17,0.3);">
+          Routebeschrijving
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Royal<span>Cut</span></div>
+      <div class="footer-copy">
+        © 2026 Royal Cut Utrecht &nbsp;·&nbsp; Sweder van Zuylenweg 94 &nbsp;·&nbsp; 06 858 032 23
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Eigen JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
